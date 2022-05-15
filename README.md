@@ -1,24 +1,48 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A small Question and Answers website for multiple users.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 3.0.0
+* Rails version : 7.0.1
 
-* System dependencies
+### Steps to install the repo
 
-* Configuration
+1. Install Ruby 3.0.0 using `rvm` or `rbenv`.
 
-* Database creation
+2. Install Rails 7.0.1.
 
-* Database initialization
+3. Run `rake db:setup`.
 
-* How to run the test suite
+4. Run `rake db:migrate`.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Running the app on local
 
-* Deployment instructions
+1. Open terminal and navigate to project directory. Run `rails s` to start the server.
 
-* ...
+2. The page navigate to Sign in form.
+
+3. Click on Sign up (for new users) by adding email, password and password confirmation.
+
+4. Currently facing a redirect error. But refresh the page and user should load.
+
+5. Add question and the answers to it.
+
+6. CRUD functionality should work.
+
+### Things too add / Future scope
+
+1. Pundit policy checks.
+
+2. Improve UI using bootstrap or Tailwind CSS.
+
+3. Admin dashboard.
+
+4. Adding test cases.
+
+### Gems used
+
+1. Devise for user authentication.
+
+2. Interaction gem for handling business logic. Please refer `CreateQuestion` and `CreateAnswer` classes.
