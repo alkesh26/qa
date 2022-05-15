@@ -25,7 +25,7 @@ Things you may want to cover:
 
 3. Click on Sign up (for new users) by adding email, password and password confirmation.
 
-4. Currently facing a redirect error. But refresh the page and user should load.
+4. We should land on questions index page after sign up (same flow for sign in).
 
 5. Add question and the answers to it.
 
