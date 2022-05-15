@@ -23,9 +23,14 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
 
+    result = CreateAnswer.run!(
+      answer: @answer,
+      creator: current_user
+    )
+
     respond_to do |format|
-      if @answer.save
-        format.html { redirect_to answer_url(@answer), notice: "Answer was successfully created." }
+      if result.valid?
+        format.html { redirect_to question_url(@answer.question), notice: "Answer was successfully created." }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +70,6 @@ class AnswersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def answer_params
-      params.fetch(:answer, {})
+      params.require(:answer).permit(:body, :question_id)
     end
 end

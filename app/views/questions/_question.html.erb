@@ -1,2 +1,29 @@
 <div id="<%= dom_id question %>">
+
+  <div>
+    <b><label for="title">Question title</label></b>
+    <%= @question.title %>
+  </div>
+
+  <br>
+
+  <div>
+    <b><label for="body">Question body</label></b>
+    <%= @question.body %>
+  </div>
+
+  <br/>
+  <br/>
+
+  <b>Answers</b>
+  <br>
+  <%- @question.answers.each do |answer| %>
+    <div>
+      <%= answer.body %>
+    </div>
+    <br/>
+  <% end %>
+
+  Submit answers:
+  <%= render "answers/form", answer: @answer %>
 </div>

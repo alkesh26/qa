@@ -73,3 +73,6 @@ end
 
 # Use devise for authentication
 gem "devise"
+
+# Manage application specific business logic. https://github.com/AaronLasseigne/active_interaction
+gem "active_interaction"

@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :question_id %>
+
+  <div>
+    <%= form.label :body, "Body:" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <br/>
+
   <div>
     <%= form.submit %>
   </div>

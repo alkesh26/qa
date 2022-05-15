@@ -12,6 +12,22 @@
   <% end %>
 
   <div>
+    <%= form.label :title, "Title:" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <br/>
+
+  <div>
+    <%= form.label :body, "Body:" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <br/>
+
+  <%= render "answers/form", answer: @answer %>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

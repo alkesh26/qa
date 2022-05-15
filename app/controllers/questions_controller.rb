@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
+    @answer = @question.answers.build
   end
 
   # GET /questions/new
@@ -23,8 +24,13 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
+    result = CreateQuestion.run!(
+      question: @question,
+      creator: current_user
+    )
+
     respond_to do |format|
-      if @question.save
+      if result.valid?
         format.html { redirect_to question_url(@question), notice: "Question was successfully created." }
         format.json { render :show, status: :created, location: @question }
       else
@@ -65,6 +71,6 @@ class QuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.fetch(:question, {})
+      params.require(:question).permit(:title, :body)
     end
 end
